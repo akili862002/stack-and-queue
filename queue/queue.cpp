@@ -26,7 +26,10 @@ template<class T> Queue<T>::~Queue() {
 }
 
 template<class T> T Queue<T>::front() const {
-    return this->_front;
+    if(this->_front == nullptr) {
+        return T();
+    }
+    return this->_front->getValue();
 }
 
 template<class T> bool Queue<T>::empty() const {
