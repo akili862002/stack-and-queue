@@ -5,7 +5,7 @@ const char openSymbols[] = {
     '(',
     '{',
     '[',
-    '<'
+    '<',
 };
 
 const char closeSymbols[] = {
@@ -13,6 +13,12 @@ const char closeSymbols[] = {
     '}',
     ']',
     '>'
+};
+
+const char quoteSymbols[] = {
+    '\'',
+    '"',
+    '`'
 };
 
 std::size_t getOpenIndex(char c) {
@@ -29,6 +35,13 @@ std::size_t getCloseIndex(char c) {
     return -1;
 }
 
+std::size_t getQuoteIndex(char c) {
+    for(std::size_t i = 0; i != (sizeof(quoteSymbols) / sizeof(char)); ++i) {
+        if(quoteSymbols[i] == c) return i;
+    }
+    return -1;
+}
+
 int main() {
     Stack<char>* pairs = new Stack<char>();
     std::string input;
@@ -41,6 +54,12 @@ int main() {
             if(pairs->top() != openSymbols[idx]) {
                 pairs->push(*it);
                 break;
+            } else {
+                pairs->pop();
+            }
+        } else if((idx = getQuoteIndex(*it)) != -1) {
+            if(pairs->top() != quoteSymbols[idx]) {
+                pairs->push(*it);
             } else {
                 pairs->pop();
             }
