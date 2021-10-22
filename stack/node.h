@@ -1,7 +1,7 @@
 #ifndef _NODE_H_INCLUDED_
 #define _NODE_H_INCLUDED_
 
-template <class T> class Node {
+template <typename T> class Node {
     private:
         T value;
         Node* prev;
