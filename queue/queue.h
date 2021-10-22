@@ -14,12 +14,15 @@ template<class T> class Queue {
         ~Queue();
         T front() const;
         T rear() const;
+        Queue<T>* setFront(Node<T>*);
+        Queue<T>* setRear(Node<T>*);
         bool empty() const;
         std::size_t size() const;
         Queue* enqueue(T);
         Queue* dequeue();
         Queue* swap(Queue<T>*);
         std::string toString() const;
+        Queue* reverse();
 };
 
 #endif
