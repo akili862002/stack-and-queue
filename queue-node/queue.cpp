@@ -94,10 +94,14 @@ template<typename T> Queue<T>* Queue<T>::dequeue() {
     return this;
 }
 
-template<typename T> Queue<T>* Queue<T>::swap(Queue<T>* stack) {
+template<typename T> Queue<T>* Queue<T>::swap(Queue<T>* queue) {
     Node<T>* temp = this->_front;
-    this->_front = stack->_front;
-    stack->_front = temp;
+    this->_front = queue->_front;
+    queue->_front = temp;
+
+    temp = this->_rear;
+    this->_rear = queue->_rear;
+    queue->_rear = temp;
     return this;
 }
 

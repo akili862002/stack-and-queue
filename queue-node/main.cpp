@@ -20,8 +20,8 @@ int main() {
     std::cout << "queue A: " << queueA->toString() << std::endl;
     std::cout << "queue B: " << queueB->toString() << std::endl;
     queueA->swap(queueB);
-    std::cout << "queue A: " << queueA->toString() << std::endl;
-    std::cout << "queue B: " << queueB->toString() << std::endl;
+    std::cout << "queue A: " << queueA->reverse()->toString() << std::endl;
+    std::cout << "queue B: " << queueB->reverse()->toString() << std::endl;
 
     delete queueA;
     delete queueB;
