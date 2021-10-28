@@ -27,6 +27,10 @@ template<typename T> std::size_t Stack<T>::size() const {
     return this->_top + 1;
 }
 
+template<typename T> std::size_t Stack<T>::capacity() const {
+    return this->_capacity;
+}
+
 template<typename T> Stack<T>* Stack<T>::push(T value) {
     if(this->_top + 1 == this->_capacity) {
         for(std::size_t i = 0; i != this->_top; ++i) {

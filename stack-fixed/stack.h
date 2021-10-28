@@ -14,6 +14,7 @@ template<typename T> class Stack {
         Stack* setTop(std::size_t);
         bool empty() const;
         std::size_t size() const;
+        std::size_t capacity() const;
         Stack* push(T);
         Stack* pop();
         Stack* swap(Stack<T>*);
