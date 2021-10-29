@@ -52,7 +52,7 @@ template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
             this->_capacity <<= 1;
         }
         T* new_arr = new T[this->_capacity];
-        std::copy(this->arr, this->arr + this->_rear + 1, new_arr);
+        std::copy(this->arr, this->arr + this->_rear, new_arr);
         delete this->arr;
         this->arr = new_arr;
     }
