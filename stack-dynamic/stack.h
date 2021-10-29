@@ -3,7 +3,7 @@
 #include <string>
 
 template<typename T> class Stack {
-    private:
+    protected:
         std::size_t _capacity;
         std::size_t _top;
         T* arr;

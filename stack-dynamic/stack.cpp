@@ -47,7 +47,7 @@ template<typename T> Stack<T>* Stack<T>::push(T value) {
         }
         T* new_arr = new T[this->_capacity];
         if(this->arr != nullptr) {
-            std::copy(this->arr, this->arr + this->_top, new_arr);
+            std::copy(this->arr, this->arr + this->_top + 1, new_arr);
             delete this->arr;
         }
         this->arr = new_arr;
