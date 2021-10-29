@@ -5,7 +5,7 @@
 Featuring 3 types of implementation: 
   - [x] Fixed capacity
 
-  - [ ] Dynamic capacity
+  - [x] Dynamic capacity
 
   - [x] Linked node
 
