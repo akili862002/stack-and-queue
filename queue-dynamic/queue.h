@@ -5,7 +5,6 @@
 template<class T> class Queue {
     private:
         std::size_t _rear;
-        std::size_t _front;
         std::size_t _capacity;
         T* arr;
     public:
