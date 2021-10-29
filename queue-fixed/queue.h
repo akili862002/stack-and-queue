@@ -1,5 +1,5 @@
-#ifndef _STACK_H_INCLUDED_
-#define _STACK_H_INCLUDED_
+#ifndef _QUEUE_H_INCLUDED 
+#define _QUEUE_H_INCLUDED 
 #include <string>
 
 template<class T> class Queue {
