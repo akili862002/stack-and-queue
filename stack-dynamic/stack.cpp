@@ -40,10 +40,14 @@ template<typename T> std::size_t Stack<T>::capacity() const {
 
 template<typename T> Stack<T>* Stack<T>::push(T value) {
     if(this->_top + 1 == this->_capacity) {
-        this->_capacity <<= 1;
+        if(this->_capacity == 0) {
+            this->_capacity = 1;
+        } else {
+            this->_capacity <<= 1;
+        }
         T* new_arr = new T[this->_capacity];
         if(this->arr != nullptr) {
-            std::copy(this->arr, this->arr + this->_capacity, new_arr);
+            std::copy(this->arr, this->arr + this->_top, new_arr);
             delete this->arr;
         }
         this->arr = new_arr;
