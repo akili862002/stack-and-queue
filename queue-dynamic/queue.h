@@ -3,7 +3,7 @@
 #include <string>
 
 template<class T> class Queue {
-    private:
+    protected:
         std::size_t _rear;
         std::size_t _capacity;
         T* arr;
