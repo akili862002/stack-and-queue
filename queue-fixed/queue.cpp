@@ -29,6 +29,10 @@ template<typename T> bool Queue<T>::empty() const {
     return this->_rear == -1;
 }
 
+template<typename T> bool Queue<T>::full() const {
+    return (this->_rear + 1 == this->_capacity);
+}
+
 template<typename T> std::size_t Queue<T>::size() const {
     return this->_rear + 1;
 }

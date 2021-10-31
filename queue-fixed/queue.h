@@ -13,6 +13,7 @@ template<class T> class Queue {
         T front() const;
         T rear() const;
         bool empty() const;
+        bool full() const;
         std::size_t size() const;
         std::size_t capacity() const;
         Queue* enqueue(T);
