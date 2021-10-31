@@ -42,7 +42,9 @@ template<typename T> std::size_t Queue<T>::capacity() const {
 }
 
 template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
-    if(this->_rear + 1 != this->_capacity) {
+    if(this->_rear + 1 == this->_capacity) {
+        throw std::overflow_error("enqueue a full queue");
+    } else {
         *(this->arr + ++this->_rear) = value;
     }
     return this;
