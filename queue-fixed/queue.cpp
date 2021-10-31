@@ -51,6 +51,9 @@ template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
 }
 
 template<typename T> Queue<T>* Queue<T>::dequeue() {
+    if(this->_rear == -1) {
+        throw std::runtime_error("dequeue an empty queue");
+    }
     for(std::size_t i = 0; i != this->_rear; ++i) {
         *(this->arr + i) = *(this->arr + i + 1);
     }

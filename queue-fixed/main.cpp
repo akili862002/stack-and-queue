@@ -9,12 +9,14 @@ int main() {
     queueA->enqueue(2);
     queueA->enqueue(3);
     queueA->enqueue(4);
-    queueA->enqueue(5);
 
     queueB->enqueue(7);
     queueB->enqueue(8);
     queueB->enqueue(9);
 
+    queueA->dequeue();
+    queueA->dequeue();
+    queueA->dequeue();
     queueA->dequeue();
 
     std::cout << "queue A: " << queueA->toString() << std::endl;
