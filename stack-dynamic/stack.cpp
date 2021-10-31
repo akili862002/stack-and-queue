@@ -57,9 +57,10 @@ template<typename T> Stack<T>* Stack<T>::push(T value) {
 }
 
 template<typename T> Stack<T>* Stack<T>::pop() {
-    if(this->_top != -1) {
-        --this->_top;
+    if(this->_top == -1) {
+        throw std::runtime_error("pop an empty stack");
     }
+    --this->_top;
     return this;
 }
 
