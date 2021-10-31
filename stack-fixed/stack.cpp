@@ -23,6 +23,10 @@ template<typename T> bool Stack<T>::empty() const {
     return this->_top == -1;
 }
 
+template<typename T> bool Stack<T>::full() const {
+    return (this->_top + 1 == this->_capacity);
+}
+
 template<typename T> std::size_t Stack<T>::size() const {
     return this->_top + 1;
 }

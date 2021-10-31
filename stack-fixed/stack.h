@@ -13,6 +13,7 @@ template<typename T> class Stack {
         T top() const;
         Stack* setTop(std::size_t);
         bool empty() const;
+        bool full() const;
         std::size_t size() const;
         std::size_t capacity() const;
         Stack* push(T);
