@@ -63,6 +63,9 @@ template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
 }
 
 template<typename T> Queue<T>* Queue<T>::dequeue() {
+    if(this->_rear == -1) {
+        return this;
+    }
     for(std::size_t i = 0; i != this->_rear; ++i) {
         *(this->arr + i) = *(this->arr + i + 1);
     }
