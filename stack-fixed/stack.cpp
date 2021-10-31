@@ -36,11 +36,8 @@ template<typename T> std::size_t Stack<T>::capacity() const {
 }
 
 template<typename T> Stack<T>* Stack<T>::push(T value) {
-    if(this->_top + 1 == this->_capacity) {
-        for(std::size_t i = 0; i != this->_top; ++i) {
-            *(this->arr + i) = *(this->arr + i + 1);
-        }
-        *(this->arr + this->_top) = value;
+    if(this->full()) {
+        throw std::overflow_error("pushing to a full stack");
     } else {
         this->arr[++this->_top] = value;
     }
