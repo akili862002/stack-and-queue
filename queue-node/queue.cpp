@@ -3,18 +3,19 @@
 #include "./node.cpp"
 
 template<typename T> Queue<T>::Queue() {
+    this->_size = 0;
     this->_front = nullptr;
     this->_rear = nullptr;
 }
 
 template<typename T> Queue<T>::Queue(Node<T>* front) {
+    this->_size = 1;
     this->_front = front;
     this->_rear = nullptr;
-}
-
-template<typename T> Queue<T>::Queue(Node<T>* front, Node<T>* rear) {
-    this->_front = front;
-    this->_rear = rear;
+    for(Node<T>* i = this->_front->getNext(); i != nullptr; i = i->getNext()) {
+        this->_rear = i;
+        ++this->_size;
+    }
 }
 
 template<typename T> Queue<T>::~Queue() {
@@ -60,13 +61,7 @@ template<typename T> bool Queue<T>::empty() const {
 }
 
 template<typename T> std::size_t Queue<T>::size() const {
-    std::size_t cnt = 0;
-    if(this->_front != nullptr) {
-        for(Node<T>* i = this->_front; i != nullptr; i = i->getNext()) {
-            cnt++;
-        }
-    }
-    return cnt;
+    return this->_size;
 }
 
 template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
@@ -82,6 +77,7 @@ template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
             this->_rear = node;
         }
     }
+    ++this->_size;
     return this;
 }
 
@@ -92,6 +88,7 @@ template<typename T> Queue<T>* Queue<T>::dequeue() {
     Node<T>* temp = this->_front;
     this->_front = this->_front->getNext();
     delete temp;
+    --this->_size;
     return this;
 }
 

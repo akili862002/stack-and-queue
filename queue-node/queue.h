@@ -7,10 +7,10 @@ template<class T> class Queue {
     private:
         Node<T>* _front;
         Node<T>* _rear;
+        std::size_t _size;
     public:
         Queue();
         Queue(Node<T>*);
-        Queue(Node<T>*, Node<T>*);
         ~Queue();
         T front() const;
         T rear() const;
