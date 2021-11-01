@@ -5,10 +5,15 @@
 
 template<typename T> Stack<T>::Stack() {
     this->_top = nullptr;
+    this->_size = 0;
 }
 
 template<typename T> Stack<T>::Stack(Node<T>* top) {
     this->_top = top;
+    this->_size = 1;
+    for(Node<T>* i = this->_top->getPrev(); i != nullptr; i = i->getPrev()) {
+        ++this->_size;
+    }
 }
 
 template<typename T> Stack<T>::~Stack() {
@@ -39,13 +44,7 @@ template<typename T> bool Stack<T>::empty() const {
 }
 
 template<typename T> std::size_t Stack<T>::size() const {
-    std::size_t cnt = 0;
-    if(this->_top != nullptr) {
-        for(Node<T>* i = this->_top; i != nullptr; i = i->getPrev()) {
-            cnt++;
-        }
-    }
-    return cnt;
+    return this->_size;
 }
 
 template<typename T> Stack<T>* Stack<T>::push(T value) {
@@ -54,6 +53,7 @@ template<typename T> Stack<T>* Stack<T>::push(T value) {
         node->setPrev(this->_top);
     }
     this->_top = node;
+    ++this->_size;
     return this;
 }
 
@@ -64,6 +64,7 @@ template<typename T> Stack<T>* Stack<T>::pop() {
     Node<T>* temp = this->_top;
     this->_top = this->_top->getPrev();
     delete temp;
+    --this->_size;
     return this;
 }
 

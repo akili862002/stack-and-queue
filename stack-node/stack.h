@@ -6,6 +6,7 @@
 template<typename T> class Stack {
     private:
         Node<T>* _top;
+        std::size_t _size;
     public:
         Stack();
         Stack(Node<T>*);
