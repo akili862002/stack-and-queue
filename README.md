@@ -17,3 +17,9 @@ Featuring 3 types of implementation:
   - [x] Dynamic capacity
 
   - [x] Linked node
+
+### Dequeue
+
+Featuring only one type of implementation:
+
+- [x] Circular array
