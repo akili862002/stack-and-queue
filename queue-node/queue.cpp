@@ -86,11 +86,12 @@ template<typename T> Queue<T>* Queue<T>::enqueue(T value) {
 }
 
 template<typename T> Queue<T>* Queue<T>::dequeue() {
-    if(this->_front != nullptr) {
-        Node<T>* temp = this->_front;
-        this->_front = this->_front->getNext();
-        delete temp;
+    if(this->_front == nullptr) {
+        throw std::runtime_error("dequeue an empty queue");
     }
+    Node<T>* temp = this->_front;
+    this->_front = this->_front->getNext();
+    delete temp;
     return this;
 }
 
