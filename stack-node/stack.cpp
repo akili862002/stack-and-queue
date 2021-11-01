@@ -58,11 +58,12 @@ template<typename T> Stack<T>* Stack<T>::push(T value) {
 }
 
 template<typename T> Stack<T>* Stack<T>::pop() {
-    if(this->_top != nullptr) {
-        Node<T>* temp = this->_top;
-        this->_top = this->_top->getPrev();
-        delete temp;
+    if(this->_top == nullptr) {
+        throw std::runtime_error("pop an empty stack");
     }
+    Node<T>* temp = this->_top;
+    this->_top = this->_top->getPrev();
+    delete temp;
     return this;
 }
 
