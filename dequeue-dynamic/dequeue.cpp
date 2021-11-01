@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <algorithm>
 #include "./dequeue.h"
@@ -11,7 +12,9 @@ template<typename T> inline void Dequeue<T>::__resize() {
         this->_capacity <<= 1;
     }
     T* new_arr = new T[this->_capacity]{T()};
-    this->_front = (this->_capacity - old + this->_front) % this->_capacity;
+    if(this->_front > this->_rear) {
+        this->_front = (this->_capacity - old + this->_front) % this->_capacity;
+    }
     for(std::size_t i = this->_front; i != 1; i = (i + 1) % this->_capacity) {
         *(new_arr + i) = *(this->arr + iter_front);
         iter_front = (iter_front + 1) % old;
