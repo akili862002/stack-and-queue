@@ -1,2 +1,3 @@
 *.exe
 .vscode
+compile_flags.txt
