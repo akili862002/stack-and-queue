@@ -22,6 +22,7 @@ template<class T> class Queue {
         Queue* dequeue();
         Queue* swap(Queue<T>*);
         std::string toString() const;
+        std::string toBeautifulString() const;
         Queue* reverse();
 };
 

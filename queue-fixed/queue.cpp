@@ -92,11 +92,21 @@ template<typename T> std::string Queue<T>::toString() const {
         for(std::size_t i = 0; i != this->_capacity; ++i) {
             output += std::to_string(*(this->arr + i)) + " ";
         }
-        // for(std::size_t i = this->_front, size = (this->_rear + 1) % this->_capacity; ;) {
-        //     output += std::to_string(*(this->arr + i)) + " ";
-        //     i = (i + 1) % this->_capacity;
-        //     if(i == size) break;
-        // }
+        output += "(size " + std::to_string(this->size()) + ")";
+    }
+    return output;
+}
+
+template<typename T> std::string Queue<T>::toBeautifulString() const {
+    std::string output = "";
+    if(this->_size == 0) {
+        output = "(empty)";
+    } else {
+        for(std::size_t i = this->_front, size = (this->_rear + 1) % this->_capacity; ;) {
+            output += std::to_string(*(this->arr + i)) + " ";
+            i = (i + 1) % this->_capacity;
+            if(i == size) break;
+        }
         output += "(size " + std::to_string(this->size()) + ")";
     }
     return output;
