@@ -85,6 +85,10 @@ template<typename T> Queue<T>* Queue<T>::swap(Queue<T>* stack) {
     temp = this->_capacity;
     this->_capacity = stack->_capacity;
     stack->_capacity = temp;
+
+    temp = this->_size;
+    this->_size = stack->_size;
+    stack->_size = temp;
     return this;
 }
 
